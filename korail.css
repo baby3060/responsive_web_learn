@@ -14,10 +14,35 @@ html, body {width:100%; height:100%; font-size:15px;}
 
 .accordion_active {
   display: block;
+  animation: accordionIn 0.45s normal ease-in-out both 1;
 }
 
 .accordion_unactive {
   display : none;
+  animation: accordionOut 0.45s alternate ease-in-out both 1;
+}
+
+@keyframes accordionIn {
+  0% {
+    opacity: 0;
+    transform:scale(0.9);
+    transform-origin: 50% 0;
+  }
+  100% {
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+@keyframes accordionOut {
+    0% {
+       opacity: 1;
+       transform:scale(1);
+     }
+     100% {
+          opacity:0;
+           transform:scale(0.9);
+       }
 }
 
 #sidemenu li:first-child {
