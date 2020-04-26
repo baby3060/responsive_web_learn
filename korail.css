@@ -12,6 +12,14 @@ html, body {width:100%; height:100%; font-size:15px;}
   background-color : #3262ad;
 }
 
+.accordion_active {
+  display: block;
+}
+
+.accordion_unactive {
+  display : none;
+}
+
 #sidemenu li:first-child {
   border-top : none;
 }
@@ -20,19 +28,10 @@ html, body {width:100%; height:100%; font-size:15px;}
   display:block; color:#fff; padding:14px 20px 14px 23px; border-top:1px solid #4772b5; letter-spacing:-1px
 }
 
-.blockdis {
-  display: block;
-}
-
-.nonedis {
-  display : none;
-}
-
 #sidemenu li ul {
   padding-top : 13px;
   font-size : 13px;
   background-color : #042137;
-  display:none;
   padding-bottom : 13px;
 }
 
