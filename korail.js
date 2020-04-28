@@ -1,12 +1,34 @@
+var interval;
+
 (function() {
   function slideDuration() {
-    setInterval(setSlide, 6000);
+    interval = setInterval(setSlide, 6000);
   }
 
   slideDuration();
 })();
 
+(function() {
+  var slideBtn = document.getElementsByName('slideBtn');
+  var obj;
 
+  for( var i = 0; i < slideBtn.length; i++ ) {
+    obj = slideBtn[i];
+    (
+      function(j) {
+        if( obj.addEventListener ) {
+          obj.addEventListener('click', function() {
+            var oldSelIdx = document.hForm.selIdx.value;
+
+            clearInterval(interval);
+            interval = setInterval(setSlide, 6000);
+            slideChange(oldSelIdx, (j+1));
+          })
+        }
+      }
+    )(i);
+  }
+})();
 
 function setSlide() {
   var oldSelIdx = document.hForm.selIdx.value;
@@ -20,7 +42,7 @@ function setSlide() {
 }
 
 function slideChange(oldSelIdx, selIdx) {
-  
+  document.hForm.selIdx.value = selIdx;
   // fadein 효과
   function fadeIn(el, time) {
     var last = +new Date();
@@ -36,6 +58,13 @@ function slideChange(oldSelIdx, selIdx) {
     tick();
   }
 
+  function btnChange(oldSelIdx, selIdx) {
+    var slideBtn = document.getElementsByName('slideBtn');
+
+    slideBtn[oldSelIdx - 1].classList.remove("on");
+    slideBtn[selIdx - 1].classList.add("on");
+  }
+
   var slideArr = document.getElementsByName('slide');
 
   var oldSlide = slideArr[oldSelIdx - 1];
@@ -49,8 +78,8 @@ function slideChange(oldSelIdx, selIdx) {
   newSlide.style.display = 'block';
   newSlide.style.left = '0';
   newSlide.style.zIndex = '9';
-  fadeIn(newSlide, 500);
-  document.hForm.selIdx.value = selIdx;
+  fadeIn(newSlide, 1300);
+  btnChange(oldSelIdx, selIdx);
 }
 
 (function() {

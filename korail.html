@@ -7,9 +7,7 @@
   <link rel="stylesheet" href="./korail.css" >
 </head>
 <body>
-  <form name="hForm">
-    <input type="hidden" name="selIdx" value="1" />
-  </form>
+
 
   <script type="text/javascript" src="./loading.js"></script>
   <script type="text/javascript">
@@ -18,6 +16,10 @@
         })();
   </script>
 
+  <!-- 슬라이드 시퀸스 저장용 폼 -->
+  <form name="hForm">
+    <input type="hidden" name="selIdx" value="1" />
+  </form>
 
   <div id="wrap">
     <div id="header">
@@ -147,6 +149,15 @@
       <div id="main">
 
           <div id="slide_wrap">
+            <div id="controller" style="left : 5px; top : 10px;">
+              <ul>
+                <li><a name="slideBtn" href="#" class="on">1번</a></li>
+                <li><a name="slideBtn" href="#">2번</a></li>
+                <li><a name="slideBtn" href="#">3번</a></li>
+                <li><a name="slideBtn" href="#">4번</a></li>
+              </ul>
+            </div>
+
             <ul>
               <li name="slide" class="slide" style="background : url('img1.jpg') center no-repeat; display: block; opacity: 1; left: 0px; z-index: 9;"><a href="#"></a></li>
               <li name="slide" class="slide" style="background : url('img2.jpg') center no-repeat; display: none; opacity: 0; left: 100%; z-index: 10;"><a href="#"></a></li>
@@ -156,7 +167,12 @@
           </div>
 
           <div id="book">
-            예매
+            <div>
+              <a href="#">
+                승차권 예매 바로가기
+              </a>
+            </div>
+
           </div>
 
           <div id="news">
