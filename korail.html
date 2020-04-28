@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="./korail.css" >
 </head>
 <body>
-
+  <form name="hForm">
+    <input type="hidden" name="selIdx" value="1" />
+  </form>
 
   <script type="text/javascript" src="./loading.js"></script>
   <script type="text/javascript">
@@ -144,8 +146,13 @@
 
       <div id="main">
 
-          <div id="slide">
-            슬라이드
+          <div id="slide_wrap">
+            <ul>
+              <li name="slide" class="slide" style="background : url('img1.jpg') center no-repeat; display: block; opacity: 1; left: 0px; z-index: 9;"><a href="#"></a></li>
+              <li name="slide" class="slide" style="background : url('img2.jpg') center no-repeat; display: none; opacity: 0; left: 100%; z-index: 10;"><a href="#"></a></li>
+              <li name="slide" class="slide" style="background : url('img3.jpg') center no-repeat; display: none; opacity: 0; left: 100%; z-index: 10;"><a href="#"></a></li>
+              <li name="slide" class="slide" style="background : url('img4.jpg') center no-repeat; display: none; opacity: 0; left: 100%; z-index: 10;"><a href="#"></a></li>
+            </ul>
           </div>
 
           <div id="book">

@@ -73,7 +73,6 @@ select{height:28px; padding:3px; margin:0; border:1px solid #cccccc; cursor:poin
 
 .accordion_unactive {
   display : none;
-  animation: accordionOut 0.45s alternate ease-in-out both 1;
 }
 
 @keyframes accordionIn {
@@ -88,16 +87,6 @@ select{height:28px; padding:3px; margin:0; border:1px solid #cccccc; cursor:poin
   }
 }
 
-@keyframes accordionOut {
-    0% {
-       opacity: 1;
-       transform:scale(1);
-     }
-     100% {
-          opacity:0;
-           transform:scale(0.9);
-       }
-}
 
 #sidemenu li:first-child {
   border-top : none;
@@ -125,11 +114,44 @@ a:hover {
   text-decoration: underline;
 }
 
-#slide {
+#slide_wrap {
   height : 482px;
+  position:relative;
+  margin-bottom:20px;
+}
+
+#slide_wrap ul {
+  width:100%;
+ height:100%;
+ position:absolute;
+ overflow:hidden;
+}
+
+#slide_wrap ul li {
+  width:100%;
+   height:100%;
+   position:absolute;
+   left:0;
+   top:0;
+   opacity:0;
+   z-index:1;
+   background-size:cover !important;
+}
+
+#slide_wrap ul li a {
+  display:block;
+ width:100%;
+ height:100%;
+}
+
+#slide_wrap ul li:first-child {
+ display:block;
+ opacity:1;
+ z-index:2;
 }
 
 #book {
+  float : none;
   height : 182px;
 }
 
@@ -160,4 +182,4 @@ a:hover {
   float : left;
 }
 
-#main { background:#FFF; color : black;}
+#main { background:#FFF; color : black; margin-left:196px;}
