@@ -7,10 +7,67 @@
 
 html {-ms-text-size-adjust:none; -webkit-text-size-adjust:none;overflow-y:scroll;}
 html, body {width:100%; height:100%; font-size:15px;}
+img { border:0; border : none;}
+select { background-color : #ffffff; }
 
-select {
-  background-color : #ffffff;
+.helper {
+  width : 600px;
+  height : 100%;
 }
+
+.helper ul {
+  margin-top : 20px;
+  width : 100%;
+}
+
+.helper ul li {
+  float : left;
+  padding : 3px;
+  width : auto;
+}
+
+.helper ul li:first-child {
+  margin-left : 13px;
+}
+
+.helper ul li::after {
+  content : '   /';
+}
+
+.helper ul li:last-child::after {
+  content : ' ' ;
+}
+
+.bg-util01 {
+    width: 12px; height: 11px;
+    background: url('korail_util_sprites.png') -57px -72px;
+}
+
+.bg-util02 {
+    width: 29px; height: 11px;
+    background: url('korail_util_sprites.png') -82px -41px;
+}
+
+.bg-util03 {
+    width: 52px; height: 11px;
+    background: url('korail_util_sprites.png') -10px -10px;
+}
+
+.bg-util04 {
+    width: 36px; height: 11px;
+    background: url('korail_util_sprites.png') -82px -10px;
+}
+
+.bg-util05 {
+    width: 27px; height: 11px;
+    background: url('korail_util_sprites.png') -10px -72px;
+}
+
+.bg-util06 {
+    width: 42px; height: 11px;
+    background: url('korail_util_sprites.png') -10px -41px;
+}
+
 
 #sidebar #sidemenu {
   background-color : #3262ad;
@@ -81,6 +138,18 @@ select{height:28px; padding:3px; margin:0; border:1px solid #cccccc; cursor:poin
 .srch select{ font-size:12px; letter-spacing:-1px; height:34px; border:none; width:125px; box-sizing:border-box; padding-left:5px; }
 
 .srch input[type="submit"]{width:36px; text-align:center; box-sizing:border-box; padding: 7px 5px; position:relative; left:-5px; background:#868686; border:1px solid #868686; color : white}
+.left {
+  float : left;
+}
+.top_srch {
+
+}
+.top_srch input[type="text"] {
+
+}
+
+
+
 
 #left_2 li a:visited {
   color : #444;
