@@ -16,8 +16,8 @@ select { background-color : #ffffff; }
 }
 
 .helper ul {
-  margin-top : 20px;
   width : 100%;
+  margin-top : 20px;
 }
 
 .helper ul li {
@@ -66,6 +66,7 @@ select { background-color : #ffffff; }
 .bg-util06 {
     width: 42px; height: 11px;
     background: url('korail_util_sprites.png') -10px -41px;
+    margin-top : 2px;
 }
 
 
@@ -133,26 +134,40 @@ label, select, input, button {vertical-align:middle;}
 input, textarea, select, button {font-size:1em;  vertical-align:baseline; vertical-align:middle;}
 button, select {text-transform:none;}
 select{height:28px; padding:3px; margin:0; border:1px solid #cccccc; cursor:pointer; box-sizing:border-box; border-radius:0;}
+a:visited { color : #444; }
+a {color : #444; }
 
 .srch{padding:0 10px 25px 17px}
-.srch select{ font-size:12px; letter-spacing:-1px; height:34px; border:none; width:125px; box-sizing:border-box; padding-left:5px; }
+.srch select{ font-size:12px; letter-spacing:-1px; height:34px; border:none; width:128px; box-sizing:border-box; padding-left:2px; }
 
 .srch input[type="submit"]{width:36px; text-align:center; box-sizing:border-box; padding: 7px 5px; position:relative; left:-5px; background:#868686; border:1px solid #868686; color : white}
 .left {
   float : left;
 }
-.top_srch {
-
+.total_srch {
+  margin-top : 15px;
 }
 .top_srch input[type="text"] {
+  width : 170px;
+  padding: 7px 5px;
+  box-sizing:border-box;
+  border:1px solid #868686;
+}
+.top_srch input[type="button"] { width:36px; text-align:center; box-sizing:border-box; padding: 7px 5px; position:relative; left:-5px; background:#042137; border:1px solid #868686; color : white; }
 
+.hot_srch {
+  margin-left : 20px;
+  font-size : 17px;
+  margin-top : 20px;
 }
 
+.hot_srch a {
+  font-size : 14px;
+  color : blue;
+}
 
-
-
-#left_2 li a:visited {
-  color : #444;
+.hot_srch a:visited {
+  color : blue;
 }
 
 #left_2 li:first-child {
@@ -165,12 +180,10 @@ select{height:28px; padding:3px; margin:0; border:1px solid #cccccc; cursor:poin
 
 #left_2 li a {
   background-color:#ebebeb;
-  letter-spacing:-1px
-  color : #444;
+  letter-spacing:-1px;
   font-size : 13px;
     padding : 11px 26px;
     display:block;
-
     border-top:1px solid #d1d1d1;
 }
 
@@ -179,7 +192,6 @@ select{height:28px; padding:3px; margin:0; border:1px solid #cccccc; cursor:poin
 }
 
 #sidebar #left_3 li a {
-  color : #444;
   display : block;
   padding : 2px 9px;
 }
@@ -293,8 +305,6 @@ a:hover {
 #book > div > a, #book > div > a:active {
   color : #101010;
 }
-
-
 
 #wrap {
   margin : 0 auto;
