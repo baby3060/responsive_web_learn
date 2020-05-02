@@ -30,6 +30,52 @@ var interval;
   }
 })();
 
+(function() {
+  var news_menu = document.getElementById("news_menu");
+  var menu_li = news_menu.children;
+
+  for( var i = 0; i < menu_li.length; i++ ) {
+    var obj = menu_li[i].children[0];
+    (
+      function(j) {
+        if(obj.addEventListener) {
+          obj.addEventListener('click', function() {
+            newsVisible(j);
+          });
+        }
+      }
+    )(i);
+  }
+})();
+
+function newsVisible(j) {
+  var news_menu = document.getElementById("news_menu");
+  var menu_li = news_menu.children;
+
+  var news_item = document.getElementById('news_item').children;
+
+  for( var i = 0; i < menu_li.length; i++ ) {
+    var obj = menu_li[i].children[0];
+
+    if( i !== j ) {
+      newsHandle(false, obj, news_item[i]);
+    }
+  }
+
+  newsHandle(true, obj, news_item[j]);
+}
+
+function newsHandle(flag, obj, obj2) {
+  if( flag ) {
+    obj.classList.add('news_on');
+    obj2.style.display = 'block';
+    fadeIn(obj2, 500);
+  } else {
+    obj.classList.remove('news_on');
+    obj2.style.display = 'none';
+  }
+}
+
 function setSlide() {
   var oldSelIdx = document.hForm.selIdx.value;
   var selIdx = document.hForm.selIdx.value;
@@ -41,22 +87,23 @@ function setSlide() {
   slideChange(oldSelIdx, selIdx);
 }
 
+// fadein 효과
+function fadeIn(el, time) {
+  var last = +new Date();
+  var tick = function() {
+    el.style.opacity = +el.style.opacity + (new Date() - last) / time;
+    last = +new Date();
+
+    if (+el.style.opacity < 1) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+    }
+  };
+
+  tick();
+}
+
 function slideChange(oldSelIdx, selIdx) {
   document.hForm.selIdx.value = selIdx;
-  // fadein 효과
-  function fadeIn(el, time) {
-    var last = +new Date();
-    var tick = function() {
-      el.style.opacity = +el.style.opacity + (new Date() - last) / time;
-      last = +new Date();
-
-      if (+el.style.opacity < 1) {
-        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-      }
-    };
-
-    tick();
-  }
 
   function btnChange(oldSelIdx, selIdx) {
     var slideBtn = document.getElementsByName('slideBtn');

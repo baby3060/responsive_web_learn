@@ -322,8 +322,34 @@ a:hover {
   float : left;
 }
 
+#content-wrap {
+  padding-left : 39px;
+}
+
+#news {
+  margin : 50px 0 30px 0;
+  height : 55px;
+  border-bottom: 1px solid #dedede;
+}
+
 #container {
   width : 100%;
+}
+
+#news h2 {
+  font-size : 30px;
+  display: inline-block;
+  padding: 0 60px;
+}
+
+#news > ul {
+  float : right;
+}
+
+#news > ul li {
+  float : left;
+  margin-left : 25px;
+  box-sizing: border-box;
 }
 
 #sidebar {
@@ -334,3 +360,11 @@ a:hover {
 }
 
 #main { background:#FFF; color : black; margin-left:196px;}
+
+#news_list > ul > li:first-child {
+  display : block;
+}
+
+#news_list > ul > li {
+  display : none;
+}
