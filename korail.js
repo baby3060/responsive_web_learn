@@ -40,52 +40,15 @@ var interval;
       function(j) {
         if(obj.addEventListener) {
           obj.addEventListener('click', function() {
-            newsVisible(j);
+            if( !this.classList.contains('news_on') ) {
+              newsVisible(j);
+            }
           });
         }
       }
     )(i);
   }
 })();
-
-function newsVisible(j) {
-  var news_menu = document.getElementById("news_menu");
-  var menu_li = news_menu.children;
-
-  var news_item = document.getElementById('news_item').children;
-
-  for( var i = 0; i < menu_li.length; i++ ) {
-    var obj = menu_li[i].children[0];
-
-    if( i !== j ) {
-      newsHandle(false, obj, news_item[i]);
-    }
-  }
-
-  newsHandle(true, obj, news_item[j]);
-}
-
-function newsHandle(flag, obj, obj2) {
-  if( flag ) {
-    obj.classList.add('news_on');
-    obj2.style.display = 'block';
-    fadeIn(obj2, 500);
-  } else {
-    obj.classList.remove('news_on');
-    obj2.style.display = 'none';
-  }
-}
-
-function setSlide() {
-  var oldSelIdx = document.hForm.selIdx.value;
-  var selIdx = document.hForm.selIdx.value;
-  if( selIdx > 3 ) {
-    selIdx = 1;
-  } else {
-    selIdx++;
-  }
-  slideChange(oldSelIdx, selIdx);
-}
 
 // fadein 효과
 function fadeIn(el, time) {
@@ -100,6 +63,46 @@ function fadeIn(el, time) {
   };
 
   tick();
+}
+
+function newsVisible(j) {
+  var news_menu = document.getElementById("news_menu");
+  var menu_li = news_menu.children;
+
+  var news_item = document.getElementById('news_item').children;
+
+  for( var i = 0; i < menu_li.length; i++ ) {
+    var obj = menu_li[i].children[0];
+    if( obj.classList.contains('news_on')) {
+      newsHandle(false, obj, news_item[i]);
+      break;
+    }
+  }
+
+  newsHandle(true, menu_li[j].children[0], news_item[j]);
+}
+
+function newsHandle(flag, obj, obj2) {
+  if( flag ) {
+    obj.classList.add('news_on');
+    obj2.style.display = 'block';
+    fadeIn(obj2, 500);
+  } else {
+    obj2.style.opacity = '0';
+    obj.classList.remove('news_on');
+    obj2.style.display = 'none';
+  }
+}
+
+function setSlide() {
+  var oldSelIdx = document.hForm.selIdx.value;
+  var selIdx = document.hForm.selIdx.value;
+  if( selIdx > 3 ) {
+    selIdx = 1;
+  } else {
+    selIdx++;
+  }
+  slideChange(oldSelIdx, selIdx);
 }
 
 function slideChange(oldSelIdx, selIdx) {
